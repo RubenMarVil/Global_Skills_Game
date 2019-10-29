@@ -24,5 +24,13 @@ namespace Global_Skills_Game
         {
             InitializeComponent();
         }
+
+        private void Manejador_Esc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                App.Current.Shutdown();
+            }
+        }
     }
 }

@@ -6,4 +6,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="presentacion\recursos\entorno.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="presentacion\recursos\entorno.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
 </Project>
