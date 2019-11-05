@@ -8,11 +8,24 @@
 
   <ItemGroup>
     <None Remove="presentacion\recursos\entorno.jpg" />
+    <None Remove="presentacion\recursos\user1.jpg" />
+    <None Remove="presentacion\recursos\user1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Expression.Drawing" Version="3.0.0" />
+    <PackageReference Include="WpfShapes" Version="0.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="presentacion\recursos\entorno.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="presentacion\recursos\user1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="presentacion\recursos\user1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 

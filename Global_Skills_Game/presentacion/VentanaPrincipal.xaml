@@ -5,8 +5,128 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Global_Skills_Game"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" KeyDown="Manejador_Esc" Background="{StaticResource EntornoJuego}" WindowStyle="None" WindowState="Maximized">
+        Title="MainWindow" Height="1080" Width="1920" KeyDown="Manejador_Esc" WindowStyle="None" WindowState="Maximized">
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="309*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+        <Canvas x:Name="Mapa" Background="{StaticResource EntornoJuego}">
+
+        </Canvas>
+        <Grid x:Name="Information" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="625" SharedSizeGroup="X" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto" MinWidth="625" SharedSizeGroup="X" />
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="ProjectInformation" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto" MinWidth="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" MinHeight="15"/>
+                    <RowDefinition Height="Auto" MinHeight="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto" MinHeight="25"/>
+                    <RowDefinition Height="Auto" MinHeight="25"/>
+                </Grid.RowDefinitions>
+
+                <Ellipse x:Name="ImageUser" Grid.Row="2" Grid.Column="1" Fill="{DynamicResource ImageUser1}" Margin="2,2,2,2" Stroke="Black" StrokeThickness="2"/>
+                <TextBlock x:Name="NameUserText" Grid.Row="3" Grid.Column="1" Text="Max Power" FontFamily="Buxton Sketch" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontStretch="Normal" FontSize="36"/>
+                <ProgressBar x:Name="StressUserBar" Grid.Column="3" Margin="15,8,15,8" Grid.RowSpan="3" Grid.Row="1" Value="30" Orientation="Vertical" Foreground="#FF0F631E" BorderBrush="Black"/>
+                <ProgressBar x:Name="BudgetProjectBar" Grid.Row="1" Grid.Column="4" Margin="15,8,15,8" Grid.RowSpan="3" Value="80" Orientation="Vertical" BorderBrush="Black"/>
+                <ProgressBar x:Name="DeliveryProjectBar" Grid.Row="1" Grid.Column="5" Grid.RowSpan="3" Margin="15,8,15,8" Value="55" Orientation="Vertical" Foreground="#FFECE43A" BorderBrush="Black"/>
+                <ProgressBar x:Name="ProgressProjectBar" Grid.Row="1" Grid.Column="6" Grid.RowSpan="3" Margin="15,8,15,8" Value="28" Orientation="Vertical" Foreground="#FF1573C1" BorderBrush="Black"/>
+                <TextBlock x:Name="StressUserText" Grid.Row="4" Grid.Column="3" Text="Stress" FontFamily="Buxton Sketch" FontWeight="Bold" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBlock x:Name="BudgetProjectText" Grid.Row="4" Grid.Column="4" Text="Budget" FontFamily="Buxton Sketch" FontWeight="Bold" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBlock x:Name="DeliveryProjectText" Grid.Row="4" Grid.Column="5" Text="Delivery" FontFamily="Buxton Sketch" FontWeight="Bold" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBlock x:Name="ProgressProjectText" Grid.Row="4" Grid.Column="6" Text="Progress" FontFamily="Buxton Sketch" FontWeight="Bold" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+            </Grid>
+
+            <Grid x:Name="InitialInformation" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto" MinWidth="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Path Grid.Column="1" Grid.Row="1" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF000000" Data="F1 M 0.5,0.975952L 0.5,40.1183L 0.965134,40.5L 25.3879,20.451L 1.07977,0.5L 0.5,0.975952 Z " Margin="5,5,5,5"/>
+                <Path Grid.Column="1" Grid.Row="2" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF000000" Data="F1 M 0.5,0.975952L 0.5,40.1183L 0.965134,40.5L 25.3879,20.451L 1.07977,0.5L 0.5,0.975952 Z " Margin="5,5,5,5"/>
+                <Path Grid.Column="1" Grid.Row="3" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF000000" Data="F1 M 0.5,0.975952L 0.5,40.1183L 0.965134,40.5L 25.3879,20.451L 1.07977,0.5L 0.5,0.975952 Z " Margin="5,5,5,5"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Project Difficulty" FontFamily="Buxton Sketch" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="0,0,25,0"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Project Budget" FontFamily="Buxton Sketch" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="0,0,25,0"/>
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="Project Duration" FontFamily="Buxton Sketch" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="0,0,25,0"/>
+                <TextBlock Grid.Column="2" Grid.Row="1" Text="LOW-MEDIUM" FontFamily="Franklin Gothic Demi Cond" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Left" Padding="25,0,0,0" Foreground="#FF06B025"/>
+                <TextBlock Grid.Column="2" Grid.Row="2" Text="2.5 M $" FontFamily="Franklin Gothic Demi Cond" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Left" Padding="25,0,0,0"/>
+                <TextBlock Grid.Column="2" Grid.Row="3" Text="1.5 YEARS" FontFamily="Franklin Gothic Demi Cond" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Left" Padding="25,0,0,0"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Text="Project Characteristics" FontFamily="Arial" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Stretch" Padding="15,0,0,0">
+                    <TextBlock.TextDecorations>
+                        <TextDecoration/>
+                    </TextBlock.TextDecorations>
+                </TextBlock>
+                <Path Grid.Column="0" Grid.Row="0" Data="M1,239.00902 L1.5,1.5112736" Fill="#FFF4F4F5" HorizontalAlignment="Left" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Stretch" Width="2" Grid.RowSpan="4" StrokeThickness="6" StrokeStartLineCap="Square" StrokeEndLineCap="Square"/>
+                <Path Grid.Column="2" Grid.Row="0" Data="M1,239.00902 L1.5,1.5112736" Fill="#FFF4F4F5" HorizontalAlignment="Right" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Stretch" Width="2" Grid.RowSpan="4" StrokeThickness="6" StrokeStartLineCap="Square" StrokeEndLineCap="Square"/>
+
+
+            </Grid>
+
+            <Grid x:Name="SiteInformation" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="10"/>
+                    <ColumnDefinition Width="Auto" MinWidth="15"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto" MinWidth="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto" MinWidth="15"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" MinHeight="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto" MinHeight="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="MotivationSiteText" Grid.Column="2" Grid.Row="3" Text="Motivation" FontFamily="Buxton Sketch" FontSize="36" VerticalAlignment="Center"/>
+                <TextBlock x:Name="CommunicationSiteText" Grid.Column="2" Grid.Row="4" Text="Communication" FontFamily="Buxton Sketch" FontSize="36" VerticalAlignment="Center"/>
+                <TextBlock x:Name="WorkloadSiteText" Grid.Column="2" Grid.Row="5" Text="Workload" FontFamily="Buxton Sketch" FontSize="36" VerticalAlignment="Center"/>
+                <ProgressBar x:Name="MotivationSiteBar" Grid.Column="4" Grid.Row="3" Margin="10,8,10,8" Value="80" Orientation="Horizontal" Foreground="#FF06B025" BorderBrush="Black"/>
+                <ProgressBar x:Name="CommunicationSiteBar" Grid.Column="4" Grid.Row="4" Margin="10,8,10,8" Value="42" Orientation="Horizontal" Foreground="#FFF33105" BorderBrush="Black"/>
+                <ProgressBar x:Name="WorkloadSiteBar" Grid.Column="4" Grid.Row="5" Margin="10,8,10,8" Value="69" Orientation="Horizontal" Foreground="#FFE02F07" BorderBrush="Black"/>
+                <WrapPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4">
+                    <WrapPanel.Effect>
+                        <DropShadowEffect BlurRadius="100" ShadowDepth="0" Opacity="0.65" />
+                    </WrapPanel.Effect>
+
+                    <Button x:Name="ButtonSite1" Content="Site 1" MinWidth="125" MinHeight="55" FontSize="36" FontFamily="Cooper Black" Background="{x:Null}" Cursor="Hand" />
+                    <Button x:Name="ButtonSite2" Content="Site 2" MinWidth="125" MinHeight="55" FontSize="36" FontFamily="Cooper Black" Background="{x:Null}" Cursor="Hand" />
+                    <Button x:Name="ButtonSite3" Content="Site 3" MinWidth="125" MinHeight="55" FontSize="36" FontFamily="Cooper Black" Background="{x:Null}" Cursor="Hand" />
+
+                </WrapPanel>
+
+            </Grid>
+
+        </Grid>
 
     </Grid>
 </Window>
